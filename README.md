@@ -14,6 +14,7 @@ Three important aspects of model interpretation are:
 So, models take inputs and process them to get outputs. What if our data is biased? It will also make our model biased and therefore untrustworthy. It is important to understand & be able to explain to our models so that we can also trust their predictions and maybe even detect issues and fix them before presenting them to others.
 
 
+
 **Other model interpretation techniques and libraries have been developed to overcome limitations. Some of these are :**
 1. LIME ( Local Interpretable Model-Agnostic Explanations)
 2. SHAP (Shapley Additive Explanations)
@@ -29,11 +30,23 @@ These libraries use feature importance, partial dependence plots, individual con
 
 **ELI5** is a python package that is used to inspect ML classifiers and explain their predictions. It is popularly used to debug algorithms such as sklearn regressors and classifiers, XGBoost, CatBoost, Keras, etc. 
 
+
+
 **Feature importance** shows how a feature is important for the model. In other words, when we delete the feature from the model, how our error changes? If the error increases a lot, this means that a feature is important for our model to predict the target variable.
 
 **Partial dependence** plots visualize the effect of the change for a certain feature when everything else is held constant (with a cooler phrase: ceteris paribus). With the help of these, we can see a possible limit value, where this value is exceeded, it directs the model predictions the other way. When we are visualizing partial dependence plots, we are examining the model globally.
 
 **Individual conditional expectation plots** show the effect of changes for a certain feature, just like partial dependency plots. But this time, the point of view is local. We are interested to see the effect of changes for a certain feature for all instances in our data. A partial dependence plot is the average of the lines of an ICE plot.
 
+
+
 **When it comes to explaining more advanced models, model-agnostic (does not depend on the model) techniques are used.**
 - Global surrogate models take the original inputs and your black-box machine learning predictions. When this new dataset is used to train and test the appropriate global surrogate model (more interpretable models such as linear model, decision tree, etc.), it basically tries to mimic your black-box model’s predictions. By interpreting and visualizing this “easier” model, we get a better understanding of how our actual model predicts in a certain way.
+
+
+
+**References**
+1. https://www.analyticsvidhya.com/blog/2020/11/demystifying-model-interpretation-using-eli5/
+2. https://www.analyticsvidhya.com/blog/2020/10/unveiling-the-black-box-model-using-explainable-ai-lime-shap-industry-use-case/
+3. https://medium.com/analytics-vidhya/shap-shapley-additive-explanations-and-lime-local-interpretable-model-agnostic-explanations-8c0aa33e91f
+4. https://towardsdatascience.com/explainable-artificial-intelligence-part-3-hands-on-machine-learning-model-interpretation-e8ebe5afc608
